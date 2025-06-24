@@ -31,11 +31,11 @@
   </li>
   <li>
     <img src="https://flagcdn.com/w40/us.png" width="24" alt="English">
-    <strong>English</strong> — <a href="https://github.com/guiireal/takeshi-bot-espanol-english">coming soon</a>
+    <strong>English</strong> — <a href="https://github.com/guiireal/takeshi-bot-english">coming soon</a>
   </li>
   <li>
     <img src="https://flagcdn.com/w40/id.png" width="24" alt="Indonésio">
-    <strong>Bahasa Indonesia</strong> — <a href="https://github.com/guiireal/takeshi-bot-espanol-bahasa-indonesia">segera hadir</a>
+    <strong>Bahasa Indonesia</strong> — <a href="https://github.com/guiireal/takeshi-bot-bahasa-indonesia">segera hadir</a>
   </li>
 </ul>
 
