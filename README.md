@@ -412,10 +412,18 @@ Takeshi Bot tiene un auto-respondedor incorporado, edita el archivo en `./databa
 
 ```json
 [
-    {
-        "match": "Hola",
-        "answer": "Hola!"
-    }
+    {
+        "match": "Hola",
+        "answer": "¿Hola, cómo estás?"
+    },
+    {
+        "match": "Todo bien",
+        "answer": "Estoy bien, gracias por preguntar"
+    },
+    {
+        "match": "¿Cuál es tu nombre?",
+        "answer": "Mi nombre es Takeshi Bot"
+    }
 ]
 ```
 
