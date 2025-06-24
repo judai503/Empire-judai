@@ -20,8 +20,6 @@
 
 ![Logger](./assets/images/logger.png)
 
----
-
 ## 🌐 Accede a Takeshi Bot en otros idiomas
 
 <ul style="list-style: none; padding-left: 0;">
@@ -39,8 +37,6 @@
   </li>
 </ul>
 
----
-
 ## 💻 Tecnologías involucradas
 
 - [Axios](https://axios-http.com/ptbr/docs/intro)
@@ -49,8 +45,6 @@
 - [Node.js >= 22.14.0](https://nodejs.org/en)
 - [Spider X API](https://api.spiderx.com.br)
 
----
-
 ## ⚠ Atención
 
 No brindamos soporte gratuito si has adquirido esta base de terceros y has pagado por ella. Solicita que **la persona que te vendió el bot te proporcione soporte**. No tenemos ningún vínculo con terceros y no nos hacemos responsables de ello, ni brindamos soporte en estas condiciones.
@@ -58,15 +52,11 @@ No brindamos soporte gratuito si has adquirido esta base de terceros y has pagad
 Si tu bot es el oficial de Bronxys, interactúa con nosotros y recibe soporte a través del grupo:
 [https://chat.whatsapp.com/J5OewHvweK1Kf7RGXAwIYM](https://chat.whatsapp.com/J5OewHvweK1Kf7RGXAwIYM)
 
----
-
 ## Sobre este proyecto
 
 Este proyecto no tiene ningún vínculo oficial con WhatsApp. Fue desarrollado de forma independiente para interacciones automatizadas a través de la plataforma.
 
 No nos hacemos responsables de cualquier uso indebido de este bot. Es responsabilidad exclusiva del usuario garantizar que su utilización cumpla con los términos de uso de WhatsApp y la legislación vigente.
-
----
 
 ## Instalación en Termux
 
@@ -149,8 +139,6 @@ exports.OWNER_LID = "219999999999999@lid";
 ```sh
 npm start
 ```
-
------
 
 ## Instalación en VPS (Debian/Ubuntu)
 
@@ -278,8 +266,6 @@ exports.OWNER_NUMBER = "5511999999999";
 
 24 - Finalmente, ¡prueba el bot!
 
------
-
 ## Algunos comandos requieren API
 
 Edita el archivo `config.js` que se encuentra dentro de la carpeta `src` y pega tu clave API de la plataforma Spider X API, según el código a continuación.
@@ -288,8 +274,6 @@ Para obtener tu token, accede a: [https://api.spiderx.com.br](https://api.spider
 ```js
 exports.SPIDER_API_TOKEN = "tu_token_aqui";
 ```
-
------
 
 ## Funcionalidades generales
 
@@ -343,8 +327,6 @@ exports.SPIDER_API_TOKEN = "tu_token_aqui";
 | YT MP3 | Miembro | ✅
 | YT MP4 | Miembro | ✅
 | YT Search | Miembro | ✅
-
------
 
 ## Funcionalidades de envío (Ejemplos)
 
@@ -424,8 +406,6 @@ exports.SPIDER_API_TOKEN = "tu_token_aqui";
 |---------|---------|-----------|-----------------|
 | `/samples-of-messages` | Centro de ejemplos | Centro con lista de todos los ejemplos disponibles | Menú interactivo, acceso directo a todos los ejemplos |
 
------
-
 ## Auto-respuesta
 
 Takeshi Bot tiene un auto-respondedor incorporado, edita el archivo en `./database/auto-responder.json`:
@@ -434,20 +414,18 @@ Takeshi Bot tiene un auto-respondedor incorporado, edita el archivo en `./databa
 [
     {
         "match": "Hola",
-        "answer": "¿Hola, cómo estás?"
+        "answer": "Hola, cómo estás?"
     },
     {
         "match": "Todo bien",
         "answer": "Estoy bien, gracias por preguntar"
     },
     {
-        "match": "¿Cuál es tu nombre?",
+        "match": "Cuál es tu nombre?",
         "answer": "Mi nombre es Takeshi Bot"
     }
 ]
 ```
-
------
 
 ## Implementación técnica de los ejemplos
 
@@ -568,8 +546,6 @@ Todos los archivos de ejemplo se almacenan en `assets/samples/`:
   - `sample-sticker.webp` - Archivo de sticker para prueba
   - `sample-video.mp4` - Archivo de video para prueba
 
------
-
 ## Estructura de carpetas
 
   - 📁 assets ➔ *archivos multimedia*
@@ -606,8 +582,6 @@ Todos los archivos de ejemplo se almacenan en `assets/samples/`:
   - 📝package.json ➔ *archivo de definición de las dependencias del bot*
   - 📝README.md ➔ *esta documentación*
 
------
-
 ## Errores comunes
 
 ### Operación denegada al extraer la carpeta
@@ -634,13 +608,9 @@ Agrega un nuevo dispositivo nuevamente.
 
 Abre Termux, escribe `termux-setup-storage` y luego, acepta los permisos.
 
------
-
 ## ¡Suscríbete al canal!
 
 <a href="https://www.youtube.com/@devgui_?sub_confirmation=1" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube"></a>
-
------
 
 ## Licencia
 
@@ -660,8 +630,6 @@ Lo que no puedes hacer:
   - No puedes transformar este código en algo propietario (cerrado) e impedir que otras personas lo accedan o lo usen.
 
 Esta licencia garantiza que todos tengan acceso al código fuente y puedan colaborar libremente, promoviendo el intercambio y la mejora del proyecto.
-
------
 
 ## ⚠ Descargo de responsabilidad
 
