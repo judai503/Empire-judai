@@ -605,6 +605,8 @@ El error a continuación ocurre cuando se descarga el archivo ZIP directamente e
 
 Para resolverlo, sigue el [tutorial de instalación vía git clone](https://www.google.com/search?q=%23instalacin-en-termux).
 
+![erro comum 1](./assets/images/erro-comum-1.jpg)
+
 ### Eliminación de los archivos de sesión y reconexión
 
 Si ocurre algún error en la conexión, puedes borrar los archivos dentro de la carpeta `/assets/auth/baileys`.
@@ -620,6 +622,8 @@ Agrega un nuevo dispositivo nuevamente.
 ### Permission denied (permiso denegado) al acceder a `cd /sdcard`
 
 <br/>
+
+![erro comum 2](./assets/images/erro-comum-2.png)
 
 Abre Termux, escribe `termux-setup-storage` y luego, acepta los permisos.
 
