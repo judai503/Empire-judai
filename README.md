@@ -163,7 +163,7 @@ sudo apt install git
 4 - Instala NVM.
 
 ```sh
-curl -o- [https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh](https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh) | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 ```
 
 5 - Actualiza el source de tu entorno.
