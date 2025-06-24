@@ -82,7 +82,7 @@ cd /sdcard
 4 - Clona el repositorio.
 
 ```sh
-git clone [https://github.com/guiireal/takeshi-bot-espanol.git](https://github.com/guiireal/takeshi-bot-espanol.git)
+git clone https://github.com/guiireal/takeshi-bot-espanol.git
 ```
 
 5 - Entra en la carpeta clonada.
