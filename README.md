@@ -1,15 +1,15 @@
 # 🤖 Takeshi Bot
 
 <div align="center">
-    <img src="./assets/images/takeshi-bot.png" width="500">
+    <img src="./assets/images/takeshi-bot.png" width="500">
 </div>
 
 <br />
 
 <div align="center">
-    <a href="https://github.com/guiireal/takeshi-bot-espanol">
-        <img alt="Version" src="https://img.shields.io/badge/Versi%C3%B3n-5.2.1-blue">
-    </a>
+    <a href="https://github.com/guiireal/takeshi-bot">
+        <img alt="Version" src="https://img.shields.io/badge/Vers%C3%A3o-5.2.1-blue">
+    </a>
 </div>
 
 <br />
