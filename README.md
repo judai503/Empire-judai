@@ -488,8 +488,7 @@ Todos los comandos de ejemplo utilizan funciones de `src/utils/loadCommonFunctio
 ```javascript
 await sendImageFromFile("./assets/image.jpg", "¡Hola @5511999999999!", ["5511999999999@s.whatsapp.net"]);
 
-await sendImageFromURL(
-  "[https://exemplo.com/imagem.png](https://exemplo.com/imagem.png)", 
+await sendImageFromURL("https://exemplo.com/imagem.png", 
   "¡Hola @5511999999999 y @5511888888888!", 
   ["5511999999999@s.whatsapp.net", "5511888888888@s.whatsapp.net"]
 );
