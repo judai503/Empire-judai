@@ -217,7 +217,7 @@ npm start
 13 - El bot te pedirá que ingreses tu número de teléfono.
 Ingresa **exactamente** como está en WhatsApp y solo números.
 
-No agregues el 9º dígito en números que no sean de SP o RJ.
+![tutorial-vps-1](./assets/images/tutorial-vps-1.png)
 
 14 - Conecta el bot a PM2.
 
@@ -227,15 +227,27 @@ pm2 start npm --name "takeshi-bot" -- start
 
 15 - El bot mostrará un **código de emparejamiento** que debe colocarse en `dispositivos vinculados` en tu WhatsApp.
 
+![tutorial-vps-2](./assets/images/tutorial-vps-2.png)
+
 16 - Ve a `dispositivos vinculados` en tu WhatsApp.
+
+![tutorial-vps-3](./assets/images/tutorial-vps-3.png)
 
 17 - Haz clic en `Vincular un dispositivo`.
 
+![tutorial-vps-4](./assets/images/tutorial-vps-4.png)
+
 18 - En la esquina inferior, haz clic en `Vincular con número de teléfono`.
+
+![tutorial-vps-5](./assets/images/tutorial-vps-5.png)
 
 19 - Coloca el **código de emparejamiento** que recibiste en la terminal, que se generó en el paso `15`.
 
+![tutorial-vps-6](./assets/images/tutorial-vps-6.png)
+
 20 - Después de esto, en la terminal que quedó detenida, debería mostrar que **se conectó con éxito**.
+
+![tutorial-vps-7](./assets/images/tutorial-vps-7.png)
 
 21 - Escribe `CTRL + C` para detener el bot.
 
@@ -244,6 +256,8 @@ pm2 start npm --name "takeshi-bot" -- start
 ```sh
 pm2 start npm --name "takeshi-bot" -- start
 ```
+
+![tutorial-vps-8](./assets/images/tutorial-vps-8.png)
 
 23 - Configura el archivo `config.js` que se encuentra dentro de la carpeta `src`.
 
@@ -265,6 +279,8 @@ exports.OWNER_NUMBER = "5511999999999";
 ```
 
 24 - Finalmente, ¡prueba el bot!
+
+![tutorial-vps-9](./assets/images/tutorial-vps-9.png)
 
 ## Algunos comandos requieren API
 
