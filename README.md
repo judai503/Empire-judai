@@ -199,7 +199,7 @@ npm install pm2 -g
 10 - Clona el repositorio del bot donde desees.
 
 ```sh
-git clone [https://github.com/guiireal/takeshi-bot-espanol.git](https://github.com/guiireal/takeshi-bot-espanol.git)
+git clone https://github.com/guiireal/takeshi-bot-espanol.git
 ```
 
 11 - Entra en la carpeta clonada.
