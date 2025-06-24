@@ -27,7 +27,7 @@
 <ul style="list-style: none; padding-left: 0;">
   <li>
     <img src="https://flagcdn.com/w40/br.png" width="24" alt="Português (BR)">
-    <strong>Português (BR)</strong> — <a href="https://github.com/guiireal/takeshi-bot-espanol">clique aqui</a>
+    <strong>Português (BR)</strong> — <a href="https://github.com/guiireal/takeshi-bot">clique aqui</a>
   </li>
   <li>
     <img src="https://flagcdn.com/w40/us.png" width="24" alt="English">
