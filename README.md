@@ -547,39 +547,39 @@ Todos los archivos de ejemplo se almacenan en `assets/samples/`:
 
 ## Estructura de carpetas
 
-- 📁 assets ➔ _arquivos de mídia_
-    - 📁 auth ➔ _arquivos da conexão do bot_
-    - 📁 images ➔ _arquivos de imagem_
-        - 📁 funny ➔ _gifs de comandos de diversão_
-    - 📁 samples ➔ _arquivos de exemplo para testes_
-    - 📁 temp ➔ _arquivos temporários_
-- 📁 database ➔ _arquivos de dados_
-- 📁 node_modules ➔ _módulos do Node.js_
-- 📁 src ➔ _código fonte do bot (geralmente você mexerá mais aqui)_
-    - 📁 @types ➔ _pasta onde fica as definições de tipos_
-    - 📁 commands ➔ _pasta onde ficam os comandos_
-        - 📁 admin ➔ _pasta onde ficam os comandos administrativos_
-        - 📁 member ➔ _pasta onde ficam os comandos gerais (todos poderão utilizar)_
-            - 📁 exemplos ➔ _pasta com 24 comandos de exemplo_
-        - 📁 owner ➔ _pasta onde ficam os comandos de dono (grupo e bot)_
-        - 📝🤖-como-criar-comandos.js ➔ _arquivo de exemplo de como criar um comando_
-    - 📁 errors ➔ _classes de erros usadas nos comandos_
-    - 📁 middlewares ➔ _interceptadores de requisições_
-    - 📁 services ➔ _serviços diversos_
-    - 📁 utils ➔ _utilitários_
-    - 📝 config.js ➔ _arquivo de configurações do bot_
-    - 📝 connection.js ➔ _script de conexão do bot com a biblioteca Baileys_
-    - 📝 index.js ➔ _script ponto de entrada do bot_
-    - 📝 loader.js ➔ _script de carga de funções_
-    - 📝 menu.js ➔ _menu do bot_
-    - 📝 test.js ➔ _script de testes_
+- 📁 assets ➔ _archivos multimedia_
+    - 📁 auth ➔ _archivos de conexión de bots_
+    - 📁 images ➔ _archivos de imagen_
+        - 📁 funny ➔ _GIFs divertidos de comandos_
+    - 📁 samples ➔ _archivos de muestra para pruebas_
+    - 📁 temp ➔ _archivos temporales_
+- 📁 database ➔ _archivos de datos_
+- 📁 node_modules ➔ _módulos de Node.js_
+- 📁 src ➔ _código fuente del bot (normalmente aquí es donde más te meterás)_
+    - 📁 @types ➔ _carpeta donde se encuentran las definiciones de tipo_
+    - 📁 commands ➔ _carpeta donde se encuentran los comandos_
+        - 📁 admin ➔ _carpeta donde se encuentran los comandos administrativos_
+        - 📁 member ➔ _carpeta donde se encuentran los comandos generales (todos pueden usarlos)_
+            - 📁 samples ➔ _carpeta con comandos de ejemplo_
+        - 📁 owner ➔ _carpeta donde están los comandos del propietario (grupo y bot)_
+        - 📝🤖-como-criar-comandos.js ➔ _archivo de ejemplo de cómo crear un comando_
+    - 📁 errors ➔ _clases de error utilizadas en comandos_
+    - 📁 middlewares ➔ _interceptores de solicitudes_
+    - 📁 services ➔ _servicios varios_
+    - 📁 utils ➔ _utilidades_
+    - 📝 config.js ➔ _archivo de configuración del robot_
+    - 📝 connection.js ➔ _script de conexión de bot con la biblioteca Baileys_
+    - 📝 index.js ➔ _script de punto de entrada de bot_
+    - 📝 loader.js ➔ _script de carga de función_
+    - 📝 menu.js ➔ _menú de robots_
+    - 📝 test.js ➔ _guión de prueba_
 - ⚡-cases-estao-aqui ➔ _easter egg_ 
-- 📝 index.js ➔ _script ponto de entrada do bot para hospedagem_
-- 📝.gitignore ➔ _arquivo para não subir certas pastas no GitHub_
-- 📝LICENSE ➔ _arquivo de licença_
-- 📝package-lock.json ➔ _arquivo de cache das dependências do bot_
-- 📝package.json ➔ _arquivo de definição das dependências do bot_
-- 📝README.md ➔ _esta documentação_
+- 📝 index.js ➔ _script de punto de entrada de bot para alojamiento_
+- 📝.gitignore ➔ _archivo para no cargar ciertas carpetas a GitHub_
+- 📝LICENSE ➔ _archivo de licencia_
+- 📝package-lock.json ➔ _archivo de caché de dependencias del bot_
+- 📝package.json ➔ _archivo de definición de dependencias del bot_
+- 📝README.md ➔ _esta documentación_
 
 ## Errores comunes
 
