@@ -133,12 +133,10 @@ exports.BOT_NAME = "Takeshi Bot";
 
 // Número del bot. Coloca el número del bot
 // (solo números, exactamente como está en WhatsApp).
-// Si tu código de área no es de SP o Río, no coloques el 9 antes del número.
 exports.BOT_NUMBER = "558112345678";
 
 // Número del dueño del bot. Coloca el número del dueño del bot
 // (solo números, exactamente como está en WhatsApp).
-// Si tu código de área no es de SP o Río, no coloques el 9 antes del número.
 exports.OWNER_NUMBER = "5521950502020";
 
 // LID del dueño del bot.
