@@ -314,7 +314,6 @@ exports.SPIDER_API_TOKEN = "tu_token_aqui";
 | Silenciar/desmutear | Admin | ❌
 | Revelar | Admin | ❌
 | Difuminar imagen | Miembro | ❌
-| Lienzo Bolsonaro | Miembro | ✅
 | Lienzo cárcel | Miembro | ✅
 | Lienzo invertir | Miembro | ✅
 | Lienzo RIP | Miembro | ✅
