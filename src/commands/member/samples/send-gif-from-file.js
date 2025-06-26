@@ -1,8 +1,6 @@
 const { PREFIX, ASSETS_DIR } = require(`${BASE_DIR}/config`);
 const { delay } = require("baileys");
 const path = require("node:path");
-const fs = require("node:fs");
-const { getBuffer } = require(`${BASE_DIR}/utils`);
 
 module.exports = {
   name: "send-gif-from-file",
