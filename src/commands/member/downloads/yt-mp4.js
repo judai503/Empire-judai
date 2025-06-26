@@ -45,8 +45,8 @@ module.exports = {
         `*Título*: ${data.title}
         
 *Descripción*: ${data.description}
-        *Duración en segundos*: ${data.total_duration_in_seconds}
-        *Canal*: ${data.channel.name}`
+*Duración en segundos*: ${data.total_duration_in_seconds}
+*Canal*: ${data.channel.name}`
       );
 
       await sendVideoFromURL(data.url);
