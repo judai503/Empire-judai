@@ -12,7 +12,7 @@ module.exports = {
   name: "mirror",
   description: "Invierte la posición de la imagen que envíes",
   commands: ["espelhar", "espejar", "mirror"],
-  usage: `${PREFIX}mirror (marca la imagen) o ${PREFIX}espelhar (responde la imagen)`,
+  usage: `${PREFIX}mirror (marca la imagen) o ${PREFIX}mirror (responde la imagen)`,
   handle: async ({
     isImage,
     downloadImage,

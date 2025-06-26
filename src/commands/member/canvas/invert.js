@@ -10,7 +10,7 @@ module.exports = {
   description:
     "Genero uma edição com cores invertidos usando a imagem que envíes",
   commands: ["invertir", "invert", "inverter"],
-  usage: `${PREFIX}invert (marca la imagen) o ${PREFIX}invertir (responde la imagen)`,
+  usage: `${PREFIX}invert (marca la imagen) o ${PREFIX}invert (responde la imagen)`,
   /**
    * @param {CommandHandleProps} props
    * @returns {Promise<void>}

@@ -10,7 +10,7 @@ module.exports = {
   description:
     "Genero una edición como si la persona estuviera en la cárcel con la imagen que envíes",
   commands: ["carcel", "cadeia", "jail"],
-  usage: `${PREFIX}jail (marca la imagen) o ${PREFIX}carcel (responde la imagen)`,
+  usage: `${PREFIX}jail (marca la imagen) o ${PREFIX}jail (responde la imagen)`,
   /**
    * @param {CommandHandleProps} props
    * @returns {Promise<void>}
