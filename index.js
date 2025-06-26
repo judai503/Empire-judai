@@ -61,7 +61,7 @@
  *
  * ---------------- 🚀 IMPORTANTE 🚀 ----------------
  *
- * Lee el tutorial completo en: https://github.com/guiireal/takeshi-bot?tab=readme-ov-file#instala%C3%A7%C3%A3o-no-termux-
+ * Lee el tutorial completo en: https://github.com/guiireal/takeshi-bot-espanol
  *
  * ¡No saltes pasos! Léelo completo, ¡ya que es muy importante para que entiendas cómo funciona el bot!
  *
