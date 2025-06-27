@@ -587,7 +587,7 @@ Todos los archivos de ejemplo se almacenan en `assets/samples/`:
     - 📝 loader.js ➔ _script de carga de función_
     - 📝 menu.js ➔ _menú de robots_
     - 📝 test.js ➔ _guión de prueba_
-- ⚡-cases-estao-aqui ➔ _easter egg_ 
+- ⚡-cases-estan-aqui ➔ _easter egg_ 
 - 📝 index.js ➔ _script de punto de entrada de bot para alojamiento_
 - 📝.gitignore ➔ _archivo para no cargar ciertas carpetas a GitHub_
 - 📝LICENSE ➔ _archivo de licencia_
