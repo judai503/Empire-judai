@@ -28,9 +28,31 @@ exports.loadCommonFunctions = ({ socket, webMessage }) => {
     return null;
   }
 
+  const isAudio = baileysIs(webMessage, "audio");
   const isImage = baileysIs(webMessage, "image");
   const isVideo = baileysIs(webMessage, "video");
   const isSticker = baileysIs(webMessage, "sticker");
+
+  const withRetry = async (fn, maxRetries = 3, delayMs = 1000) => {
+    let lastError;
+
+    for (let attempt = 1; attempt <= maxRetries; attempt++) {
+      try {
+        return await fn();
+      } catch (error) {
+        lastError = error;
+        console.warn(`Intento ${attempt}/${maxRetries} falló:`, error.message);
+
+        if (attempt < maxRetries) {
+          await delay(delayMs * attempt);
+        }
+      }
+    }
+
+    throw new Error(
+      `Fallo después de ${maxRetries} intentos. Último error: ${lastError.message}`
+    );
+  };
 
   const sendTypingState = async (anotherJid = "") => {
     const sendToJid = anotherJid || remoteJid;
@@ -46,6 +68,10 @@ exports.loadCommonFunctions = ({ socket, webMessage }) => {
     await socket.sendPresenceUpdate("recording", sendToJid);
 
     await delay(TIMEOUT_IN_MILLISECONDS_BY_EVENT);
+  };
+
+  const downloadAudio = async (webMessage, fileName) => {
+    return await download(webMessage, fileName, "audio", "mp4");
   };
 
   const downloadImage = async (webMessage, fileName) => {
@@ -177,17 +203,75 @@ exports.loadCommonFunctions = ({ socket, webMessage }) => {
       optionalParams = { mentions };
     }
 
-    return await socket.sendMessage(
-      remoteJid,
-      {
-        image: fs.readFileSync(file),
-        caption: caption ? `${BOT_EMOJI} ${caption}` : "",
-        ...optionalParams,
-      },
-      {
-        ...quotedObject,
-      }
-    );
+    return await withRetry(async () => {
+      return await socket.sendMessage(
+        remoteJid,
+        {
+          image: fs.readFileSync(file),
+          caption: caption ? `${BOT_EMOJI} ${caption}` : "",
+          ...optionalParams,
+        },
+        {
+          ...quotedObject,
+        }
+      );
+    });
+  };
+
+  const sendImageFromURL = async (
+    url,
+    caption = "",
+    mentions = null,
+    quoted = true
+  ) => {
+    const quotedObject = quoted ? { quoted: webMessage } : {};
+
+    let optionalParams = {};
+
+    if (mentions?.length) {
+      optionalParams = { mentions };
+    }
+
+    return await withRetry(async () => {
+      return await socket.sendMessage(
+        remoteJid,
+        {
+          image: { url },
+          caption: caption ? `${BOT_EMOJI} ${caption}` : "",
+          ...optionalParams,
+        },
+        { url, ...quotedObject }
+      );
+    });
+  };
+
+  const sendImageFromBuffer = async (
+    buffer,
+    caption = "",
+    mentions = null,
+    quoted = true
+  ) => {
+    const quotedObject = quoted ? { quoted: webMessage } : {};
+
+    let optionalParams = {};
+
+    if (mentions?.length) {
+      optionalParams = { mentions };
+    }
+
+    return await withRetry(async () => {
+      return await socket.sendMessage(
+        remoteJid,
+        {
+          image: buffer,
+          caption: caption ? `${BOT_EMOJI} ${caption}` : "",
+          ...optionalParams,
+        },
+        {
+          ...quotedObject,
+        }
+      );
+    });
   };
 
   const sendVideoFromFile = async (
@@ -214,31 +298,6 @@ exports.loadCommonFunctions = ({ socket, webMessage }) => {
       {
         ...quotedObject,
       }
-    );
-  };
-
-  const sendImageFromURL = async (
-    url,
-    caption = "",
-    mentions = null,
-    quoted = true
-  ) => {
-    const quotedObject = quoted ? { quoted: webMessage } : {};
-
-    let optionalParams = {};
-
-    if (mentions?.length) {
-      optionalParams = { mentions };
-    }
-
-    return await socket.sendMessage(
-      remoteJid,
-      {
-        image: { url },
-        caption: caption ? `${BOT_EMOJI} ${caption}` : "",
-        ...optionalParams,
-      },
-      { url, ...quotedObject }
     );
   };
 
@@ -464,33 +523,6 @@ exports.loadCommonFunctions = ({ socket, webMessage }) => {
     );
   };
 
-  const sendImageFromBuffer = async (
-    buffer,
-    caption = "",
-    mentions = null,
-    quoted = true
-  ) => {
-    const quotedObject = quoted ? { quoted: webMessage } : {};
-
-    let optionalParams = {};
-
-    if (mentions?.length) {
-      optionalParams = { mentions };
-    }
-
-    return await socket.sendMessage(
-      remoteJid,
-      {
-        image: buffer,
-        caption: caption ? `${BOT_EMOJI} ${caption}` : "",
-        ...optionalParams,
-      },
-      {
-        ...quotedObject,
-      }
-    );
-  };
-
   const sendVideoFromBuffer = async (
     buffer,
     caption = "",
@@ -611,6 +643,7 @@ exports.loadCommonFunctions = ({ socket, webMessage }) => {
     fullMessage,
     isGroup,
     isGroupWithLid,
+    isAudio,
     isImage,
     isReply,
     isSticker,
@@ -622,6 +655,7 @@ exports.loadCommonFunctions = ({ socket, webMessage }) => {
     userJid,
     webMessage,
     deleteMessage,
+    downloadAudio,
     downloadImage,
     downloadSticker,
     downloadVideo,

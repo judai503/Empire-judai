@@ -1,5 +1,7 @@
+const { isActiveAntiLinkGroup } = require("../../utils/database");
+
 const { PREFIX } = require(`${BASE_DIR}/config`);
-const { InvalidParameterError } = require(`${BASE_DIR}/errors`);
+const { InvalidParameterError, WarningError } = require(`${BASE_DIR}/errors`);
 const {
   activateAntiLinkGroup,
   deactivateAntiLinkGroup,
@@ -30,6 +32,17 @@ module.exports = {
       );
     }
 
+    const hasActive = antiLinkOn && isActiveAntiLinkGroup(remoteJid);
+    const hasInactive = antiLinkOff && !isActiveAntiLinkGroup(remoteJid);
+
+    if (hasActive || hasInactive) {
+      throw new WarningError(
+        `¡La función de anti-enlace ya está ${
+          antiLinkOn ? "activada" : "desactivada"
+        }!`
+      );
+    }
+
     if (antiLinkOn) {
       activateAntiLinkGroup(remoteJid);
     } else {
@@ -38,7 +51,7 @@ module.exports = {
 
     await sendSuccessReact();
 
-    const context = antiLinkOn ? "activado" : "desactivado";
+    const context = antiLinkOn ? "activada" : "desactivada";
 
     await sendReply(`¡Función de anti-enlace ${context} con éxito!`);
   },

@@ -22,6 +22,7 @@ const {
   getAutoResponderResponse,
   isActiveAutoResponderGroup,
   isActiveAntiLinkGroup,
+  isActiveOnlyAdmins,
 } = require("./database");
 const { errorLog } = require("../utils/logger");
 const { ONLY_GROUP_ID } = require("../config");
@@ -41,14 +42,18 @@ exports.dynamicCommand = async (paramsHandler, startProcess) => {
     webMessage,
   } = paramsHandler;
 
-  if (isActiveAntiLinkGroup(remoteJid) && isLink(fullMessage)) {
-    if (!userJid) return;
+  const activeGroup = isActiveGroup(remoteJid);
+
+  if (activeGroup && isActiveAntiLinkGroup(remoteJid) && isLink(fullMessage)) {
+    if (!userJid) {
+      return;
+    }
 
     if (!(await isAdmin({ remoteJid, userJid, socket }))) {
       await socket.groupParticipantsUpdate(remoteJid, [userJid], "remove");
 
       await sendReply(
-        "¡Anti-enlace activado! ¡Has sido eliminado por enviar un enlace!"
+        "¡Anti-link activado! ¡Fuiste removido por enviar un enlace!"
       );
 
       await socket.sendMessage(remoteJid, {
@@ -70,7 +75,10 @@ exports.dynamicCommand = async (paramsHandler, startProcess) => {
     return;
   }
 
-  if (!verifyPrefix(prefix) || !hasTypeOrCommand({ type, command })) {
+  if (
+    activeGroup &&
+    (!verifyPrefix(prefix) || !hasTypeOrCommand({ type, command }))
+  ) {
     if (isActiveAutoResponderGroup(remoteJid)) {
       const response = getAutoResponderResponse(fullMessage);
 
@@ -82,14 +90,25 @@ exports.dynamicCommand = async (paramsHandler, startProcess) => {
     return;
   }
 
-  if (!(await checkPermission({ type, ...paramsHandler }))) {
+  if (activeGroup && !(await checkPermission({ type, ...paramsHandler }))) {
     await sendErrorReply("¡No tienes permiso para ejecutar este comando!");
     return;
   }
 
-  if (!isActiveGroup(remoteJid) && command.name !== "on") {
+  if (
+    activeGroup &&
+    isActiveOnlyAdmins(remoteJid) &&
+    !(await isAdmin({ remoteJid, userJid, socket }))
+  ) {
     await sendWarningReply(
-      "¡Este grupo está desactivado! ¡Pídele al dueño del grupo que active el bot!"
+      "¡Solo los administradores pueden ejecutar comandos!"
+    );
+    return;
+  }
+
+  if (!activeGroup && command.name !== "on") {
+    await sendWarningReply(
+      "¡Este grupo está desactivado! ¡Pide al propietario del grupo que active el bot!"
     );
 
     return;
@@ -104,14 +123,14 @@ exports.dynamicCommand = async (paramsHandler, startProcess) => {
   } catch (error) {
     if (badMacHandler.handleError(error, `command:${command.name}`)) {
       await sendWarningReply(
-        "Error temporal de sincronización. Intenta nuevamente en unos segundos."
+        "Error temporal de sincronización. Inténtalo nuevamente en unos segundos."
       );
       return;
     }
 
     if (badMacHandler.isSessionError(error)) {
       errorLog(
-        `Error de sesión durante la ejecución del comando ${command.name}: ${error.message}`
+        `Error de sesión durante ejecución de comando ${command.name}: ${error.message}`
       );
       await sendWarningReply(
         "Error de comunicación. Intenta ejecutar el comando nuevamente."
@@ -128,8 +147,8 @@ exports.dynamicCommand = async (paramsHandler, startProcess) => {
     } else {
       errorLog("Error al ejecutar comando", error);
       await sendErrorReply(
-        `¡Ocurrió un error al ejecutar el comando ${command.name}! ¡El desarrollador ha sido notificado!
-      
+        `¡Ocurrió un error al ejecutar el comando ${command.name}! ¡El desarrollador fue notificado!
+     
 📄 *Detalles*: ${error.message}`
       );
     }
