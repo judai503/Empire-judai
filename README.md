@@ -441,6 +441,14 @@ Takeshi Bot tiene un auto-respondedor incorporado, edita el archivo en `./databa
 ]
 ```
 
+## ¿Dónde está el menú del bot?
+
+El menú del bot se encuentra en la carpeta `src`, dentro del archivo `menu.js`.
+
+## ¿Dónde modifico el mensaje de bienvenida y cuándo alguien abandona el grupo?
+
+Los mensajes se encuentran en la carpeta `src`, dentro del archivo `messages.js`.
+
 ## Implementación técnica de los ejemplos
 
 ### 📁 Ubicación de los comandos de ejemplo
