@@ -6,7 +6,7 @@ module.exports = {
   description:
     "Lista todos los ejemplos disponibles de envío de mensajes para desarrolladores",
   commands: ["samples-of-messages", "sample-of-messages"],
-  usage: `${PREFIX}ejemplos-from-mensajes`,
+  usage: `${PREFIX}samples-of-messages`,
   /**
    * @param {CommandHandleProps} props
    * @returns {Promise<void>}
