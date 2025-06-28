@@ -295,49 +295,50 @@ exports.SPIDER_API_TOKEN = "tu_token_aqui";
 
 | Función | Contexto | ¿Requiere Spider X API?
 | ------------ | --- | ---
-| Cambiar imagen del bot | Dueño | ❌
 | Apagar el bot en el grupo | Dueño | ❌
+| Cambiar imagen del bot | Dueño | ❌
 | Ejecutar comandos de infraestructura | Dueño | ❌
 | Encender el bot en el grupo | Dueño | ❌
 | Obtener el ID del grupo | Dueño | ❌
 | Abrir grupo | Admin | ❌
-| Programar mensaje | Admin | ❌
-| Anti-enlace | Admin | ❌
-| Banear miembros | Admin | ❌
-| Cerrar grupo | Admin | ❌
 | Activar/desactivar auto-respuesta | Admin | ❌
 | Activar/desactivar bienvenida | Admin | ❌
 | Activar/desactivar salida de grupo | Admin | ❌
+| Anti-enlace | Admin | ❌
+| Banear miembros | Admin | ❌
+| Cambiar nombre del grupo | Admin | ❌
+| Cerrar grupo | Admin | ❌
 | Limpiar chat | Admin | ❌
 | Mencionar a todos | Admin | ❌
-| Cambiar nombre del grupo | Admin | ❌
-| Silenciar/desmutear | Admin | ❌
+| Programar mensaje | Admin | ❌
 | Revelar | Admin | ❌
-| Difuminar imagen | Miembro | ❌
-| Lienzo cárcel | Miembro | ✅
-| Lienzo invertir | Miembro | ✅
-| Lienzo RIP | Miembro | ✅
-| Comandos de diversión/juegos | Miembro |❌
-| Espejar imagen | Miembro | ❌
+| Silenciar/desmutear | Admin | ❌
+| Solo administradores | Administrador | ❌
 | Chat falso | Miembro | ❌
-| Sticker de texto animado | Miembro | ✅
+| Comandos de diversión/juegos | Miembro |❌
+| Descarga de video TikTok | Miembro | ✅
+| Difuminar imagen | Miembro | ❌
+| Espejar imagen | Miembro | ❌
 | Generación de imágenes con IA | Miembro | ✅
 | Generar enlace | Miembro | ❌
 | Google Gemini | Miembro | ✅
 | Google Search | Miembro | ✅
+| Imagen blanco/negro | Miembro | ❌
 | Imagen con contraste | Miembro | ❌
 | Imagen IA PixArt | Miembro | ✅
 | Imagen IA Stable Diffusion Turbo | Miembro | ✅
 | Imagen pixelada | Miembro | ❌
-| Imagen blanco/negro | Miembro | ❌
+| Lienzo cárcel | Miembro | ✅
+| Lienzo invertir | Miembro | ✅
+| Lienzo RIP | Miembro | ✅
 | Ping | Miembro | ❌
+| Renombrar sticker | Miembro | ❌
 | Reproducir audio | Miembro | ✅
 | Reproducir video | Miembro | ✅
-| Renombrar sticker | Miembro | ❌
 | Sticker | Miembro | ❌
-| Sticker IA  | Miembro | ✅
 | Sticker a imagen | Miembro | ❌
-| Descarga de video TikTok | Miembro | ✅
+| Sticker de texto animado | Miembro | ✅
+| Sticker IA  | Miembro | ✅
 | YT MP3 | Miembro | ✅
 | YT MP4 | Miembro | ✅
 | YT Search | Miembro | ✅
