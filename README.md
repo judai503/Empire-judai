@@ -8,7 +8,7 @@
 
 <div align="center">
     <a href="https://github.com/guiireal/takeshi-bot">
-        <img alt="Version" src="https://img.shields.io/badge/Vers%C3%A3o-5.3.0-blue">
+        <img alt="Version" src="https://img.shields.io/badge/Vers%C3%A3o-5.4.0-blue">
     </a>
 </div>
 
@@ -308,12 +308,13 @@ exports.SPIDER_API_TOKEN = "tu_token_aqui";
 | Banear miembros | Admin | ❌
 | Cambiar nombre del grupo | Admin | ❌
 | Cerrar grupo | Admin | ❌
+| Eliminar mensajes | Admin | ❌
 | Limpiar chat | Admin | ❌
 | Mencionar a todos | Admin | ❌
 | Programar mensaje | Admin | ❌
 | Revelar | Admin | ❌
 | Silenciar/desmutear | Admin | ❌
-| Solo administradores | Administrador | ❌
+| Solo administradores | Admin | ❌
 | Chat falso | Miembro | ❌
 | Comandos de diversión/juegos | Miembro |❌
 | Descarga de video TikTok | Miembro | ✅
