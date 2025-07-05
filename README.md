@@ -61,7 +61,7 @@ No nos hacemos responsables de cualquier uso indebido de este bot. Es responsabi
 ## Instalación en Termux
 
 1 - Abre Termux y ejecuta los siguientes comandos.
-_¿No tienes Termux? [Haz clic aquí para descargar la última versión](https://www.mediafire.com/file/082otphidepx7aq/Termux_0.119.1_aldebaran_dev.apk) o [haz clic aquí para descargar la versión de Play Store](https://play.google.com/store/apps/details?id=com.termux) si la versión de MediaFire anterior no funciona._
+_¿No tienes Termux? [Haz clic aquí para descargar la última versión](https://www.mediafire.com/file/wxpygdb9bcb5npb/Termux_0.118.3_Dev_Gui.apk) o [haz clic aquí para descargar la versión de Play Store](https://play.google.com/store/apps/details?id=com.termux) si la versión de MediaFire anterior no funciona._
 
 ```sh
 pkg upgrade -y && pkg update -y && pkg install git -y && pkg install nodejs-lts -y && pkg install ffmpeg -y
