@@ -6,19 +6,19 @@
  */
 const { getProfileImageData } = require("../services/baileys");
 const fs = require("fs");
-const { onlyNumbers } = require("../utils");
+const { onlyNumbers, getRandomNumber } = require("../utils");
 const {
   isActiveWelcomeGroup,
   isActiveExitGroup,
   isActiveGroup,
 } = require("../utils/database");
 const { welcomeMessage, exitMessage } = require("../messages");
-const { catBoxUpload } = require("../services/catbox");
 const {
   spiderAPITokenConfigured,
   exit,
   welcome,
 } = require("../services/spider-x-api");
+const { upload } = require("../services/upload");
 
 exports.onGroupParticipantsUpdate = async ({
   userJid,
@@ -56,10 +56,15 @@ exports.onGroupParticipantsUpdate = async ({
 
       if (spiderAPITokenConfigured) {
         try {
-          const link = await catBoxUpload(buffer);
+          const link = await upload(
+            buffer,
+            `${getRandomNumber(10_000, 99_9999)}.png`
+          );
 
           if (!link) {
-            throw new Error("Enlace inválido");
+            throw new Error(
+              "¡No pude subir la imagen, intenta de nuevo más tarde!"
+            );
           }
 
           const url = welcome(
@@ -113,10 +118,15 @@ exports.onGroupParticipantsUpdate = async ({
 
       if (spiderAPITokenConfigured) {
         try {
-          const link = await catBoxUpload(buffer);
+          const link = await upload(
+            buffer,
+            `${getRandomNumber(10_000, 99_9999)}.png`
+          );
 
           if (!link) {
-            throw new Error("Enlace inválido");
+            throw new Error(
+              "¡No pude subir la imagen, intenta de nuevo más tarde!"
+            );
           }
 
           const url = exit("miembro", "Fuiste un buen miembro", link);
@@ -147,7 +157,10 @@ exports.onGroupParticipantsUpdate = async ({
       }
     }
   } catch (error) {
-    console.error("Error al procesar evento onGroupParticipantsUpdate:", error);
+    console.error(
+      "Error al procesar el evento onGroupParticipantsUpdate:",
+      error
+    );
     process.exit(1);
   }
 };
