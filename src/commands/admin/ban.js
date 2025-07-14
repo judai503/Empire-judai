@@ -1,67 +1,38 @@
-const { OWNER_NUMBER } = require("../../config");
+let handler = async (m, { conn, isAdmin, isBotAdmin, command, participants }) => {
+  // Verifica que esté en grupo
+  if (!m.isGroup) return m.reply("❌ Este comando solo funciona en grupos.");
+  if (!isAdmin) return m.reply("❌ Solo los administradores pueden usar este comando.");
+  if (!isBotAdmin) return m.reply("⚠️ Necesito ser administrador para expulsar usuarios.");
 
-const { PREFIX, BOT_NUMBER } = require(`${BASE_DIR}/config`);
-const { DangerError, InvalidParameterError } = require(`${BASE_DIR}/errors`);
-const { toUserJid, onlyNumbers } = require(`${BASE_DIR}/utils`);
+  // Obtiene al usuario objetivo (mencionado o citado)
+  let target;
+  if (m.quoted) {
+    target = m.quoted.sender;
+  } else if (m.mentionedJid && m.mentionedJid.length) {
+    target = m.mentionedJid[0];
+  }
 
-module.exports = {
-  name: "ban",
-  description: "Elimina a un miembro del grupo",
-  commands: ["ban", "kick"],
-  usage: `${PREFIX}ban @etiquetar_miembro 
-  
-o 
+  if (!target) return m.reply("⚠️ Menciona o responde a un usuario para expulsarlo.");
 
-${PREFIX}ban (mencionando un mensaje)`,
-  /**
-   * @param {CommandHandleProps} props
-   * @returns {Promise<void>}
-   */
-  handle: async ({
-    args,
-    isReply,
-    socket,
-    remoteJid,
-    replyJid,
-    sendReply,
-    userJid,
-    sendSuccessReact,
-  }) => {
-    if (!args.length && !isReply) {
-      throw new InvalidParameterError(
-        "¡Necesitas mencionar o etiquetar a un miembro!"
-      );
-    }
+  // Verifica que no sea admin el objetivo
+  const isTargetAdmin = participants.some(p => p.id === target && p.admin);
+  if (isTargetAdmin) return m.reply("❌ No puedo expulsar a un administrador.");
 
-    const memberToRemoveJid = isReply ? replyJid : toUserJid(args[0]);
-    const memberToRemoveNumber = onlyNumbers(memberToRemoveJid);
-
-    if (memberToRemoveNumber.length < 7 || memberToRemoveNumber.length > 15) {
-      throw new InvalidParameterError("¡Número inválido!");
-    }
-
-    if (memberToRemoveJid === userJid) {
-      throw new DangerError("¡No puedes eliminarte a ti mismo!");
-    }
-
-    if (memberToRemoveNumber === OWNER_NUMBER) {
-      throw new DangerError("¡No puedes eliminar al dueño del bot!");
-    }
-
-    const botJid = toUserJid(BOT_NUMBER);
-
-    if (memberToRemoveJid === botJid) {
-      throw new DangerError("¡No puedes eliminarme a mí!");
-    }
-
-    await socket.groupParticipantsUpdate(
-      remoteJid,
-      [memberToRemoveJid],
-      "remove"
-    );
-
-    await sendSuccessReact();
-
-    await sendReply("¡Miembro eliminado con éxito!");
-  },
+  try {
+    await conn.groupParticipantsUpdate(m.chat, [target], "remove");
+    await conn.sendMessage(m.chat, {
+      text: `👢 Usuario expulsado: @${target.split("@")[0]}`,
+      mentions: [target]
+    });
+  } catch (err) {
+    console.error(err);
+    m.reply("❌ Ocurrió un error al expulsar al usuario.");
+  }
 };
+
+handler.command = /^(kick|ban|alv)$/i;
+handler.group = true;
+handler.admin = true;
+handler.botAdmin = true;
+
+export default handler;
