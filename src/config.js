@@ -4,7 +4,7 @@ const path = require("path");
 exports.PREFIX = ".";
 
 // Emoji del bot (cambia si lo prefieres).
-exports.BOT_EMOJI = "🤖";
+exports.BOT_EMOJI = "👑";
 
 // Nombre del bot (cambia si lo prefieres).
 exports.BOT_NAME = "EMPIRE";
