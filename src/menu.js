@@ -1,7 +1,7 @@
 /**
- * Menú del bot
+ * ʍɛռʊ
  *
- * @author Dev Gui
+ * @author Dev Judai
  */
 const { BOT_NAME, PREFIX } = require("./config");
 const packageInfo = require("../package.json");
@@ -30,17 +30,17 @@ exports.menuMessage = () => {
 ▢
 ╰━━─「🌌」─━━
 
-╭━━⪩ ADMINS ⪨━━
+╭━━⪩ ΛDMIПIƧƬЯΛDӨЯΣƧ ⪨━━
 ▢
 ▢ • ${PREFIX}anti-link (1/0)
-▢ • ${PREFIX}auto-responder (1/0)
-▢ • ${PREFIX}ban
+▢ • ${PREFIX}Invocar/Todos
+▢ • ${PREFIX}Ban/Kick/Alv
 ▢ • ${PREFIX}clear
 ▢ • ${PREFIX}close
 ▢ • ${PREFIX}delete
 ▢ • ${PREFIX}demote
 ▢ • ${PREFIX}exit (1/0)
-▢ • ${PREFIX}hidetag
+▢ • ${PREFIX}hidetag/N/Tag/Notificar
 ▢ • ${PREFIX}mute
 ▢ • ${PREFIX}only-admin (1/0)
 ▢ • ${PREFIX}open
@@ -75,7 +75,7 @@ exports.menuMessage = () => {
 ▢
 ▢ • ${PREFIX}play-audio
 ▢ • ${PREFIX}play-video
-▢ • ${PREFIX}tik-tok
+▢ • ${PREFIX} Spotify 
 ▢ • ${PREFIX}yt-mp3
 ▢ • ${PREFIX}yt-mp4
 ▢
