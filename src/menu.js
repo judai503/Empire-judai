@@ -10,7 +10,7 @@ const { readMore } = require("./utils");
 exports.menuMessage = () => {
   const date = new Date();
 
-  return `╭━━⪩ ¡BIENVENIDO! ⪨━━${readMore()}
+  return `🌀═「ℬ𝒾ℯ𝓃𝓋ℯ𝓃𝒾𝒹ℴ 」═🌀${readMore()}
 ▢
 ▢ • ${BOT_NAME}
 ▢ • Fecha: ${date.toLocaleDateString("es-es")}
