@@ -11,14 +11,14 @@ exports.menuMessage = () => {
   const date = new Date();
 
   return `🌀═「ℬ𝒾ℯ𝓃𝓋ℯ𝓃𝒾𝒹ℴ 」═🌀${readMore()}
-▢
-▢ • ${BOT_NAME}
-▢ • Fecha: ${date.toLocaleDateString("es-es")}
-▢ • Hora: ${date.toLocaleTimeString("es-es")}
-▢ • Prefijo: ${PREFIX}
-▢ • Versión: ${packageInfo.version}
-▢
-╰━━─「🪐」─━━
+┃👑
+┃👑 • ${BOT_NAME}
+┃👑 • Fecha: ${date.toLocaleDateString("es-es")}
+┃👑 • Hora: ${date.toLocaleTimeString("es-es")}
+┃👑 • Prefijo: ${PREFIX}
+┃👑 • Versión: ${packageInfo.version}
+🌀═「ℰ𝓂𝓅𝒾𝓇ℯ  」═🌀
+
 
 ╭━━⪩ DUEÑO ⪨━━
 ▢
