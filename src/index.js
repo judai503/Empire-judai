@@ -151,4 +151,52 @@ async function startBot() {
   }
 }
 
+        //Welcome adaptado
+const axios = require('axios');
+sock.ev.on('group-participants.update', async (anu) => {
+    try {
+        if (global.db.data.chats[anu.id]?.welcome) {
+            let metadata = await sock.groupMetadata(anu.id);
+            let participants = anu.participants;
+
+            for (let num of participants) {
+                let ppuser;
+                ppuser = await sock.profilePictureUrl(num, 'image').catch(() => {
+                    return 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png?q=60';
+                });
+
+                let participantData = metadata.participants.find(p => p.id === num);
+                let username = participantData?.notify || participantData?.name || num.split('@')[0];
+
+                if (anu.action === "add") {
+                    let groupDescription = metadata.desc || "No hay descripción del grupo.";
+                    let groupName = metadata.subject || "Nombre del grupo desconocido";
+                    let memberCount = metadata.participants.length || 0;
+
+                    let apiUrl = `https://eliasar-yt-api.vercel.app/api/v2/welcome?avatar=${encodeURIComponent(ppuser)}&username=${username}&bg=https://tinyurl.com/2a99js3e&groupname=${encodeURIComponent(groupName)}&member=${memberCount}`;
+
+                    let response = await axios.get(apiUrl, { responseType: 'arraybuffer' });
+
+                    sock.sendMessage(anu.id, {
+                        image: response.data,
+                        caption: ` ¡Holaaa~ @${username}! \n\n Por favor, lee la descripción del grupo para evitar malentendidos. ¡No queremos que te eliminen! 🤗💕\n\n💖 Bienvenid@ al grupo: *${groupName}* 💖\n\n📜 *Descripción del grupo:* ${groupDescription} 💬\n\n✨ ¡Disfruta y pásala genial! ✨`,
+                        mentions: [num]
+                    });
+                } else if (anu.action === "remove") {
+                    let imageUrl = ppuser;
+                    let imageBuffer;
+
+                    imageBuffer = await axios.get(imageUrl, { responseType: "arraybuffer" }).then(response => {
+                        return Buffer.from(response.data, "binary");
+                    }).catch(() => {
+                        return null;
+                    });
+
+                    if (imageBuffer) {
+                        sock.sendMessage(anu.id, {
+                            image: imageBuffer,
+                            caption: `┌─✶ EMPIRE  \n│「 𝗔𝗗𝗜𝗢𝗦  」\n└┬✶ 「 @${username} 」\n   │✨  𝗦𝗲 𝗳𝘂𝗲\n   │✨ 𝗡𝘂𝗻𝗰𝗮 𝘁𝗲 𝗾𝘂𝗶𝘀𝗶𝗺𝗼𝘀 𝗮𝗾𝘂𝗶\n   └───────────────┈ ⳹`,
+                            mentions: [num]
+                        });
+                    }
 startBot();
