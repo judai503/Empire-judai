@@ -10,7 +10,7 @@ const { readMore } = require("./utils");
 exports.menuMessage = () => {
   const date = new Date();
 
-  return `🌀═「ℬ𝒾ℯ𝓃𝓋ℯ𝓃𝒾𝒹ℴ 」═🌀${readMore()}
+  return `🌀═「🅑🅘🅔🅝🅥🅔🅝🅘🅓🅞」═🌀${readMore()}
 ┃👑
 ┃👑 • ${BOT_NAME}
 ┃👑 • Fecha: ${date.toLocaleDateString("es-es")}
@@ -20,17 +20,16 @@ exports.menuMessage = () => {
 🌀═「ℰ𝓂𝓅𝒾𝓇ℯ  」═🌀
 
 
-╭━━⪩ DUEÑO ⪨━━
-▢
-▢ • ${PREFIX}exec
-▢ • ${PREFIX}get-id
-▢ • ${PREFIX}off
-▢ • ${PREFIX}on
-▢ • ${PREFIX}set-menu-image
-▢
-╰━━─「🌌」─━━
+🌀═「🅞🅦🅝🅔🅡」═🌀
+┃👑
+┃👑 • ${PREFIX}exec
+┃👑 • ${PREFIX}get-id
+┃👑 • ${PREFIX}off
+┃👑 • ${PREFIX}on
+┃👑 • ${PREFIX}set-menu-image
+🌀═「ℰ𝓂𝓅𝒾𝓇ℯ  」═🌀
 
-╭━━⪩ ΛDMIПIƧƬЯΛDӨЯΣƧ ⪨━━
+🌀═「🅐🅓🅜🅘🅝🅢」═🌀
 ▢
 ▢ • ${PREFIX}anti-link (1/0)
 ▢ • ${PREFIX}Invocar/Todos
